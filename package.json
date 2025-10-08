@@ -1,0 +1,37 @@
+{
+  "name": "osaki-meter-app-lp",
+  "version": "1.0.0",
+  "description": "Landing page for OSAKI Electric Meter Reading App - Smart solution for meter reading DX transformation",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -c-1",
+    "serve": "python3 -m http.server 8080",
+    "build": "echo 'No build process required for static site'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "osaki",
+    "meter-reading",
+    "smart-meter",
+    "dx",
+    "landing-page",
+    "電力量計",
+    "検針",
+    "スマートメーター"
+  ],
+  "author": "OSAKI Electric Co., Ltd.",
+  "license": "PROPRIETARY",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/osaki-electric/meter-app-lp"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ]
+}
