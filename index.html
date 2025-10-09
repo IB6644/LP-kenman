@@ -41,6 +41,38 @@
             line-height: 1.6;
         }
         
+        /* Typography Enhancement */
+        h1 {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.005em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        
+        .lead-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -153,9 +185,12 @@
         }
         
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
+            font-weight: 500;
             color: var(--text-secondary);
             margin-bottom: 2rem;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
         }
         
         .hero-stats {
@@ -230,17 +265,7 @@
             position: relative;
         }
         
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #1a1a1a;
-            border-radius: 2px;
-        }
+        /* スマホ画面上部の黒い線を削除 */
         
         .demo-iframe {
             width: 100%;
@@ -274,8 +299,12 @@
         }
         
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         /* Problems */
@@ -296,6 +325,17 @@
         .problem-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .problem-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
         }
         
         .problem-icon {
@@ -339,6 +379,17 @@
         .feature-card {
             text-align: center;
             padding: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         .feature-icon {
@@ -399,9 +450,11 @@
         
         .mobile-demo-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .admin-demo-wrapper {
@@ -434,35 +487,96 @@
             background: white;
         }
         
+        .demo-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
         .demo-info h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .demo-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
         }
         
         .feature-list {
             list-style: none;
             text-align: left;
+            display: grid;
+            gap: 1.2rem;
         }
         
         .feature-list li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
+            padding: 1rem 1rem 1rem 3rem;
+            position: relative;
+            background: var(--bg-light);
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+        
+        .feature-list li:hover {
+            background: linear-gradient(90deg, rgba(166, 31, 36, 0.05) 0%, transparent 100%);
+            transform: translateX(5px);
         }
         
         .feature-list li i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
             color: var(--success-color);
-            margin-right: 0.5rem;
+            font-size: 1.2rem;
+            background: white;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         /* Workflow */
         .workflow {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .workflow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
         }
         
         .workflow .section-title,
         .workflow .section-subtitle {
             color: white;
+            position: relative;
+            z-index: 1;
         }
         
         .workflow-steps {
@@ -471,6 +585,8 @@
             align-items: center;
             flex-wrap: wrap;
             margin-top: 3rem;
+            position: relative;
+            z-index: 1;
         }
         
         .step-item {
@@ -478,6 +594,21 @@
             text-align: center;
             padding: 1rem;
             min-width: 150px;
+            position: relative;
+        }
+        
+        .step-item::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .step-item:last-child::after {
+            display: none;
         }
         
         .step-number {
@@ -490,6 +621,7 @@
             line-height: 40px;
             font-weight: 900;
             margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .step-icon {
@@ -503,6 +635,19 @@
             justify-content: center;
             border-radius: 50%;
             font-size: 32px;
+            transition: all 0.3s;
+        }
+        
+        .step-item:hover .step-icon {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .step-item h3 {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
         }
         
         /* ROI */
@@ -641,8 +786,21 @@
                 flex-direction: column;
             }
             
+            .step-item::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
             .mobile-demo-wrapper {
                 grid-template-columns: 1fr;
+            }
+            
+            .demo-info {
+                margin-top: 2rem;
             }
             
             .demo-iframe-admin {
