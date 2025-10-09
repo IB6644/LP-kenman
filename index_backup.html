@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大崎電気工業の検針アプリ - スマートフォンでメーターを撮影するだけで検針業務をDX化。作業工数を最大60%削減し、ヒューマンエラーを95%以上削減。国内シェアNo.1のスマートメーター技術を活用した革新的なソリューション。">
+    <meta name="keywords" content="検針アプリ,大崎電気工業,スマートメーター,DX,業務効率化,AI検針,自動検針">
+    
+    <title>検針アプリで実現する業務変革 | 大崎電気工業株式会社</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/osaki-logo.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <img src="images/osaki-logo.svg" alt="大崎電気工業" class="logo">
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#features" class="nav-link">機能</a>
+                    <a href="#benefits" class="nav-link">導入メリット</a>
+                    <a href="#demo" class="nav-link">デモ</a>
+                    <a href="#roi" class="nav-link">導入効果</a>
+                    <a href="#contact" class="nav-link cta-button">お問い合わせ</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <span>スマートメーター国内シェアNo.1の技術力</span>
+                    </div>
+                    <h1 class="hero-title">
+                        検針アプリで実現する<br>
+                        <span class="gradient-text">業務変革</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        現場と会社をつなぐ新しい検針のDX<br>
+                        撮影するだけで、検針業務が変わる
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">60<span>%</span></div>
+                            <div class="stat-label">作業工数削減</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99<span>%</span></div>
+                            <div class="stat-label">読取精度</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95<span>%</span></div>
+                            <div class="stat-label">エラー削減</div>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/admin" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-desktop"></i> デモを体験する
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> 資料請求
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="device-mockup">
+                        <div class="phone-frame">
+                            <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/" 
+                                    class="demo-iframe-mobile"
+                                    title="検針アプリデモ（モバイル）"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課題セクション -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">検針業務の<span class="highlight">課題</span>を解決</h2>
+                <p class="section-subtitle">
+                    深刻化する業界課題に、大崎電気工業の技術力でお応えします
+                </p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="problem-icon">
+                        <i class="fas fa-users-slash"></i>
+                    </div>
+                    <h3>人手不足の深刻化</h3>
+                    <p>検針員の高齢化と人材確保の困難さが業界全体の課題に</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>スマホ1台で誰でも簡単に検針可能</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon">
+                        <i class="fas fa-pen-to-square"></i>
+                    </div>
+                    <h3>アナログ手書き作業</h3>
+                    <p>非効率な転記作業と紙ベースの管理による業務負担</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>撮影だけで自動デジタル化</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-icon">
+                        <i class="fas fa-triangle-exclamation"></i>
+                    </div>
+                    <h3>検針・転記ミス</h3>
+                    <p>人為的エラーによる請求トラブルや信頼性の低下</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>AI技術で99%以上の読取精度</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>データ活用の遅れ</h3>
+                    <p>紙ベース管理によるデータ分析の限界と機会損失</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>リアルタイムデータ分析</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 機能セクション -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">主要<span class="highlight">機能</span></h2>
+                <p class="section-subtitle">
+                    100年以上の計測技術と最新のAI技術を融合した革新的な機能群
+                </p>
+            </div>
+            <div class="features-showcase">
+                <div class="feature-main" data-aos="fade-right">
+                    <div class="feature-phone">
+                        <div class="phone-screen">
+                            <div class="screen-content" id="featureScreen">
+                                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDMwMCA1MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiNmOGY5ZmEiLz4KICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIyNTAiIHI9IjgwIiBmaWxsPSJub25lIiBzdHJva2U9IiM0Mjg1RjQiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxjaXJjbGUgY3g9IjE1MCIgY3k9IjI1MCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzQyODVGNCIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHRleHQgeD0iMTUwIiB5PSIyNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IiMzMzMiPjEyMzQ1Njc4PC90ZXh0PgogIDxyZWN0IHg9IjUwIiB5PSIzNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iNDAiIHJ4PSI1IiBmaWxsPSIjNDI4NUY0Ii8+CiAgPHRleHQgeD0iMTUwIiB5PSIzNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjE2Ij7mkq7lvabjgZnjgovjgaDjgZE8L3RleHQ+Cjwvc3ZnPg==" alt="メーター撮影画面">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-list" data-aos="fade-left">
+                    <div class="feature-item active" data-feature="ai-reading">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>AI自動読取</h3>
+                            <p>最新のAI技術により、撮影したメーター画像から瞬時に数値を読み取り。99%以上の高精度を実現。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-feature="cloud-sync">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>クラウド自動同期</h3>
+                            <p>撮影と同時にデータをクラウドに自動保存。リアルタイムで管理画面に反映され、即座に確認可能。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-feature="error-detection">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>異常値自動検知</h3>
+                            <p>前回値との比較や使用パターン分析により、異常値を自動検知。ミスや異常を見逃しません。</p>
+                        </div>
+                    </div>
+                    <div class="feature-item" data-feature="meter-management">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>メーター交換管理</h3>
+                            <p>検満時期を自動予測し、適切なタイミングで交換提案。計画的な設備管理を支援します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 操作フローセクション -->
+    <section class="workflow">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">簡単<span class="highlight">5ステップ</span>で検針完了</h2>
+                <p class="section-subtitle">
+                    誰でも直感的に操作できるシンプルな設計
+                </p>
+            </div>
+            <div class="workflow-steps">
+                <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>アプリ起動</h3>
+                    <p>スマートフォンでアプリを起動し、担当エリアを選択</p>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>カメラ起動</h3>
+                    <p>メーターに近づいてカメラを起動</p>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>自動認識</h3>
+                    <p>枠内にメーターを合わせるだけで自動認識</p>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI読取</h3>
+                    <p>AIが自動で数値を読み取り・記録</p>
+                </div>
+                <div class="step-arrow" data-aos="fade-up" data-aos-delay="450">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="step-number">05</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>送信完了</h3>
+                    <p>データを確認して送信、手書き不要で完了</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- デモセクション -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">実際の<span class="highlight">画面</span>をご覧ください</h2>
+                <p class="section-subtitle">
+                    検針アプリと管理画面のデモをお試しいただけます
+                </p>
+            </div>
+            <div class="demo-container">
+                <div class="demo-tabs" data-aos="fade-up">
+                    <button class="demo-tab active" data-tab="mobile">
+                        <i class="fas fa-mobile-alt"></i> 検針アプリ（スマホ）
+                    </button>
+                    <button class="demo-tab" data-tab="admin">
+                        <i class="fas fa-laptop"></i> 管理画面（PC）
+                    </button>
+                </div>
+                <div class="demo-content" data-aos="fade-up" data-aos-delay="100">
+                    <div class="demo-panel active" id="mobile-demo">
+                        <div class="mobile-demo-wrapper">
+                            <div class="phone-mockup">
+                                <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/" 
+                                        class="demo-iframe-mobile"
+                                        title="検針アプリデモ"></iframe>
+                            </div>
+                            <div class="demo-info">
+                                <h3>検針アプリの特徴</h3>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> 直感的な操作画面</li>
+                                    <li><i class="fas fa-check"></i> カメラで撮影するだけ</li>
+                                    <li><i class="fas fa-check"></i> AI自動読取機能</li>
+                                    <li><i class="fas fa-check"></i> オフライン対応</li>
+                                    <li><i class="fas fa-check"></i> 複数メーター管理</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-panel" id="admin-demo">
+                        <div class="admin-demo-wrapper">
+                            <div class="laptop-mockup">
+                                <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/admin" 
+                                        class="demo-iframe-admin"
+                                        title="管理画面デモ"></iframe>
+                            </div>
+                            <div class="demo-info">
+                                <h3>管理画面の特徴</h3>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> リアルタイムデータ確認</li>
+                                    <li><i class="fas fa-check"></i> 検針状況の一覧管理</li>
+                                    <li><i class="fas fa-check"></i> 異常値アラート機能</li>
+                                    <li><i class="fas fa-check"></i> CSV出力・システム連携</li>
+                                    <li><i class="fas fa-check"></i> メーター交換予測</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-cta" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/admin" 
+                       target="_blank" 
+                       class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> フルスクリーンで体験
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入メリットセクション -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">導入<span class="highlight">メリット</span></h2>
+                <p class="section-subtitle">
+                    現場から経営層まで、全社的な価値を提供
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3>現場作業員</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check-circle"></i> 手書き作業からの解放</li>
+                        <li><i class="fas fa-check-circle"></i> 作業時間の大幅短縮</li>
+                        <li><i class="fas fa-check-circle"></i> ミスのプレッシャー軽減</li>
+                        <li><i class="fas fa-check-circle"></i> スマホ1台で作業完結</li>
+                    </ul>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>管理者</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check-circle"></i> リアルタイムで進捗管理</li>
+                        <li><i class="fas fa-check-circle"></i> 検針漏れの即座把握</li>
+                        <li><i class="fas fa-check-circle"></i> エラー自動検知</li>
+                        <li><i class="fas fa-check-circle"></i> 業務の可視化・標準化</li>
+                    </ul>
+                </div>
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>経営層</h3>
+                    </div>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-check-circle"></i> 人件費の大幅削減</li>
+                        <li><i class="fas fa-check-circle"></i> ミスによる損失回避</li>
+                        <li><i class="fas fa-check-circle"></i> データ活用の推進</li>
+                        <li><i class="fas fa-check-circle"></i> DX実現による競争力向上</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROIセクション -->
+    <section class="roi" id="roi">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">導入効果と<span class="highlight">ROI</span></h2>
+                <p class="section-subtitle">
+                    具体的な数値で見る投資対効果
+                </p>
+            </div>
+            <div class="roi-content">
+                <div class="roi-calculator" data-aos="fade-right">
+                    <h3>導入効果シミュレーション</h3>
+                    <div class="calculator-form">
+                        <div class="form-group">
+                            <label>月間検針件数</label>
+                            <input type="number" id="meterCount" value="1000" min="100">
+                            <span class="unit">件/月</span>
+                        </div>
+                        <div class="form-group">
+                            <label>検針員数</label>
+                            <input type="number" id="workerCount" value="5" min="1">
+                            <span class="unit">名</span>
+                        </div>
+                        <div class="form-group">
+                            <label>平均時給</label>
+                            <input type="number" id="hourlyWage" value="1500" min="1000">
+                            <span class="unit">円</span>
+                        </div>
+                    </div>
+                    <div class="roi-results">
+                        <div class="result-item">
+                            <span class="result-label">年間削減工数</span>
+                            <span class="result-value" id="savedHours">2,400</span>
+                            <span class="result-unit">時間</span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span class="result-label">年間削減コスト</span>
+                            <span class="result-value" id="savedCost">360</span>
+                            <span class="result-unit">万円</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">投資回収期間</span>
+                            <span class="result-value" id="roiPeriod">6</span>
+                            <span class="result-unit">ヶ月</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="roi-benefits" data-aos="fade-left">
+                    <h3>定量的効果</h3>
+                    <div class="benefit-metrics">
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">60%</div>
+                                <div class="metric-label">作業時間削減</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">ミス削減</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">80%</div>
+                                <div class="metric-label">再検針削減</div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <div class="metric-content">
+                                <div class="metric-value">3倍</div>
+                                <div class="metric-label">処理速度向上</div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>定性的効果</h3>
+                    <ul class="qualitative-benefits">
+                        <li><i class="fas fa-check"></i> 従業員の満足度向上とモチベーション改善</li>
+                        <li><i class="fas fa-check"></i> データ分析による新たなビジネスチャンス創出</li>
+                        <li><i class="fas fa-check"></i> 顧客満足度の向上と信頼性確保</li>
+                        <li><i class="fas fa-check"></i> 企業ブランド価値の向上</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入企業セクション -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">導入実績と<span class="highlight">信頼</span></h2>
+                <p class="section-subtitle">
+                    100年以上の歴史と実績、全国の電力会社に採用される技術力
+                </p>
+            </div>
+            <div class="trust-indicators" data-aos="fade-up">
+                <div class="trust-item">
+                    <div class="trust-number">108<span>年</span></div>
+                    <div class="trust-label">創業からの歴史</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">No.1</div>
+                    <div class="trust-label">国内シェア</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">10<span>社</span></div>
+                    <div class="trust-label">全電力会社採用</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">8<span>%</span></div>
+                    <div class="trust-label">世界シェア</div>
+                </div>
+            </div>
+            <div class="client-message" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                    大崎電気工業は1916年の創業以来、電力計測のリーディングカンパニーとして、
+                    日本の電力インフラを支えてきました。<br>
+                    スマートメーター国内シェアNo.1の技術力と信頼を基に、
+                    検針業務のDX化を実現します。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="cta-title">
+                    検針業務の未来を、<br>
+                    今すぐ体験してください
+                </h2>
+                <p class="cta-subtitle">
+                    無料デモ・トライアルをご用意しています。<br>
+                    まずはお気軽にお問い合わせください。
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-white" onclick="openContactModal('demo')">
+                        <i class="fas fa-calendar-check"></i> デモ予約
+                    </button>
+                    <button class="btn btn-white-outline" onclick="openContactModal('trial')">
+                        <i class="fas fa-flask"></i> 無料トライアル
+                    </button>
+                    <button class="btn btn-white-outline" onclick="openContactModal('document')">
+                        <i class="fas fa-file-alt"></i> 資料請求
+                    </button>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-building"></i>
+                        <span>大崎電気工業株式会社 スマートソリューション営業部</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:smart-solution@osaki.co.jp">smart-solution@osaki.co.jp</a>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <span>03-3443-7171（平日 9:00-17:00）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/osaki-logo.svg" alt="大崎電気工業" class="footer-logo">
+                    <p class="footer-tagline">
+                        Global Energy Solution Leader<br>
+                        エネルギーの未来を創造する
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>製品・サービス</h4>
+                        <ul>
+                            <li><a href="#features">検針アプリ機能</a></li>
+                            <li><a href="#demo">デモ体験</a></li>
+                            <li><a href="#roi">導入効果</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>企業情報</h4>
+                        <ul>
+                            <li><a href="https://www.osaki.co.jp/" target="_blank">会社概要</a></li>
+                            <li><a href="https://www.osaki.co.jp/ja/ir/" target="_blank">IR情報</a></li>
+                            <li><a href="https://www.osaki.co.jp/ja/sustainability/" target="_blank">サステナビリティ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>お問い合わせ</h4>
+                        <ul>
+                            <li><a href="#contact">資料請求</a></li>
+                            <li><a href="#contact">デモ予約</a></li>
+                            <li><a href="mailto:smart-solution@osaki.co.jp">メール問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 大崎電気工業株式会社. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="https://www.osaki.co.jp/ja/privacy/" target="_blank">プライバシーポリシー</a>
+                    <a href="https://www.osaki.co.jp/ja/terms/" target="_blank">利用規約</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- お問い合わせモーダル -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeContactModal()">&times;</span>
+            <h2 class="modal-title" id="modalTitle">お問い合わせ</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>会社名 <span class="required">*</span></label>
+                        <input type="text" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label>部署名</label>
+                        <input type="text" name="department">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>お名前 <span class="required">*</span></label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>電話番号 <span class="required">*</span></label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス <span class="required">*</span></label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ種別 <span class="required">*</span></label>
+                    <select name="type" id="inquiryType" required>
+                        <option value="">選択してください</option>
+                        <option value="demo">デモ予約</option>
+                        <option value="trial">無料トライアル申込</option>
+                        <option value="document">資料請求</option>
+                        <option value="other">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>現在の検針件数（月間）</label>
+                    <select name="scale">
+                        <option value="">選択してください</option>
+                        <option value="under-500">500件未満</option>
+                        <option value="500-1000">500〜1,000件</option>
+                        <option value="1000-5000">1,000〜5,000件</option>
+                        <option value="5000-10000">5,000〜10,000件</option>
+                        <option value="over-10000">10,000件以上</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea name="message" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="privacy" required>
+                        <span><a href="https://www.osaki.co.jp/ja/privacy/" target="_blank">プライバシーポリシー</a>に同意する <span class="required">*</span></span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    送信する
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

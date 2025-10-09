@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大崎電気工業 検針アプリ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* インラインスタイルでオーバーライド */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background: white !important;
+            font-family: 'Noto Sans JP', sans-serif !important;
+        }
+        .test-section {
+            padding: 50px 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        .test-title {
+            color: #A61F24;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .test-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            display: inline-block;
+            background: #A61F24;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        .test-button:hover {
+            background: #8A1A1E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1 class="test-title">大崎電気工業 検針アプリ</h1>
+        <div class="test-content">
+            <h2>テスト表示確認</h2>
+            <p>このページが正常に表示されていれば、基本的なHTML/CSSは動作しています。</p>
+            
+            <h3>ナビゲーション</h3>
+            <nav style="background: #A61F24; padding: 20px;">
+                <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">ホーム</a>
+                <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">機能</a>
+                <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">導入メリット</a>
+                <a href="#" style="color: white; margin: 0 15px; text-decoration: none;">お問い合わせ</a>
+            </nav>
+            
+            <h3>コンテンツエリア</h3>
+            <div style="margin: 30px 0;">
+                <div style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); padding: 50px; border-radius: 8px;">
+                    <h2 style="color: #2C2C2C;">検針アプリで実現する業務変革</h2>
+                    <p style="font-size: 1.2rem; color: #5F6368;">
+                        スマートメーター国内シェアNo.1の技術力<br>
+                        撮影するだけで、検針業務が変わる
+                    </p>
+                    <div style="margin: 30px 0;">
+                        <span style="display: inline-block; margin: 10px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <strong style="color: #A61F24; font-size: 2rem;">60%</strong><br>
+                            作業工数削減
+                        </span>
+                        <span style="display: inline-block; margin: 10px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <strong style="color: #A61F24; font-size: 2rem;">99%</strong><br>
+                            読取精度
+                        </span>
+                        <span style="display: inline-block; margin: 10px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <strong style="color: #A61F24; font-size: 2rem;">95%</strong><br>
+                            エラー削減
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>リンク</h3>
+            <div>
+                <a href="index.html" class="test-button">元のindex.htmlを開く</a>
+                <a href="debug.html" class="test-button">デバッグページ</a>
+                <a href="test.html" class="test-button">テストページ</a>
+            </div>
+            
+            <h3>ロゴ確認</h3>
+            <img src="images/osaki-logo.svg" alt="OSAKI Logo" style="height: 60px; margin: 20px;">
+        </div>
+    </div>
+
+    <script>
+        console.log('index2.html loaded successfully');
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            console.log('Body background:', window.getComputedStyle(document.body).backgroundColor);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Page - 大崎電気工業 LP</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .check-item {
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ddd;
+            background: #f8f9fa;
+        }
+        .success {
+            border-left-color: #34A853;
+        }
+        .error {
+            border-left-color: #EA4335;
+        }
+        h1 {
+            color: #A61F24;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>大崎電気工業 検針アプリ LP デバッグページ</h1>
+        
+        <h2>1. ファイル存在確認</h2>
+        <div id="fileChecks"></div>
+        
+        <h2>2. CSS読み込み確認</h2>
+        <link rel="stylesheet" href="css/style.css">
+        <div class="check-item">
+            <p>CSSファイルのリンク: <code>&lt;link rel="stylesheet" href="css/style.css"&gt;</code></p>
+            <p>この下に赤いテストボックスが表示されればCSS読み込み成功:</p>
+            <div style="width: 100px; height: 50px; background: var(--primary-color, #A61F24); color: white; padding: 10px;">
+                テスト
+            </div>
+        </div>
+        
+        <h2>3. JavaScript読み込み確認</h2>
+        <div id="jsCheck" class="check-item">
+            <p>JavaScript読み込み中...</p>
+        </div>
+        
+        <h2>4. 外部ライブラリ確認</h2>
+        <div id="libCheck" class="check-item">
+            <p>ライブラリチェック中...</p>
+        </div>
+        
+        <h2>5. メインページリンク</h2>
+        <div class="check-item">
+            <a href="index.html" style="color: #A61F24; font-weight: bold;">→ index.html を開く</a>
+        </div>
+    </div>
+    
+    <script>
+        // ファイル存在確認
+        const filesToCheck = [
+            'index.html',
+            'css/style.css',
+            'js/main.js',
+            'images/osaki-logo.svg'
+        ];
+        
+        const fileChecksDiv = document.getElementById('fileChecks');
+        
+        filesToCheck.forEach(file => {
+            fetch(file)
+                .then(response => {
+                    const div = document.createElement('div');
+                    div.className = response.ok ? 'check-item success' : 'check-item error';
+                    div.innerHTML = `<strong>${file}</strong>: ${response.ok ? '✓ 存在します' : '✗ 見つかりません'} (Status: ${response.status})`;
+                    fileChecksDiv.appendChild(div);
+                })
+                .catch(error => {
+                    const div = document.createElement('div');
+                    div.className = 'check-item error';
+                    div.innerHTML = `<strong>${file}</strong>: ✗ エラー (${error.message})`;
+                    fileChecksDiv.appendChild(div);
+                });
+        });
+        
+        // JavaScript確認
+        const jsCheckDiv = document.getElementById('jsCheck');
+        jsCheckDiv.innerHTML = '<p style="color: #34A853;">✓ JavaScript動作確認OK</p>';
+        jsCheckDiv.className = 'check-item success';
+        
+        // 外部ライブラリ確認
+        setTimeout(() => {
+            const libCheckDiv = document.getElementById('libCheck');
+            const checks = [];
+            
+            // Font Awesome
+            if (document.querySelector('link[href*="font-awesome"]')) {
+                checks.push('✓ Font Awesome: 読み込み済み');
+            } else {
+                checks.push('✗ Font Awesome: 未読み込み');
+            }
+            
+            // Google Fonts
+            if (document.querySelector('link[href*="fonts.googleapis"]')) {
+                checks.push('✓ Google Fonts: 読み込み済み');
+            } else {
+                checks.push('✗ Google Fonts: 未読み込み');
+            }
+            
+            libCheckDiv.innerHTML = checks.map(c => `<p>${c}</p>`).join('');
+        }, 1000);
+    </script>
+    
+    <!-- External Libraries -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>
