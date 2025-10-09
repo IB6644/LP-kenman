@@ -23,15 +23,19 @@
   "license": "PROPRIETARY",
   "repository": {
     "type": "git",
-    "url": "https://github.com/osaki-electric/meter-app-lp"
+    "url": "git+https://github.com/osaki-electric/meter-app-lp.git"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "vercel": "^48.2.9"
   },
-  "dependencies": {},
   "browserslist": [
     "last 2 versions",
     "> 1%",
     "not dead"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/osaki-electric/meter-app-lp/issues"
+  },
+  "homepage": "https://github.com/osaki-electric/meter-app-lp#readme"
 }
