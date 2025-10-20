@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>検満管理台帳システム - 管理画面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', sans-serif;
+            background: #F3F4F6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .admin-header {
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1F2937;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #DC2626;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 5px;
+            border-radius: 10px;
+        }
+
+        /* Sidebar */
+        .admin-container {
+            display: flex;
+            height: calc(100vh - 65px);
+        }
+
+        .sidebar {
+            width: 250px;
+            background: white;
+            border-right: 1px solid #E5E7EB;
+            padding: 1.5rem 0;
+        }
+
+        .menu-item {
+            padding: 0.75rem 1.5rem;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .menu-item:hover {
+            background: #F9FAFB;
+            color: #16A34A;
+        }
+
+        .menu-item.active {
+            background: #F0FDF4;
+            color: #16A34A;
+            border-left: 3px solid #16A34A;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .stat-label {
+            color: #6B7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1F2937;
+        }
+
+        .stat-change {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .stat-change.up {
+            background: #F0FDF4;
+            color: #16A34A;
+        }
+
+        .stat-change.warning {
+            background: #FEF2F2;
+            color: #DC2626;
+        }
+
+        /* Table Section */
+        .table-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #1F2937;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #16A34A;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #15803D;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #6B7280;
+            border: 1px solid #E5E7EB;
+        }
+
+        .btn-secondary:hover {
+            background: #F9FAFB;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: #F9FAFB;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            color: #6B7280;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .data-table tr:hover {
+            background: #F9FAFB;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-normal {
+            background: #F0F9FF;
+            color: #0369A1;
+        }
+
+        .status-warning {
+            background: #FEF3C7;
+            color: #D97706;
+        }
+
+        .status-urgent {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .status-completed {
+            background: #F0FDF4;
+            color: #16A34A;
+        }
+
+        /* Filters */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            background: white;
+            color: #374151;
+            min-width: 150px;
+        }
+
+        .filter-input:focus {
+            outline: none;
+            border-color: #16A34A;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, #FEE2E2 0%, #FEF2F2 100%);
+            border: 1px solid #FCA5A5;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .alert-icon {
+            font-size: 1.5rem;
+        }
+
+        .alert-content {
+            flex: 1;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            color: #DC2626;
+            margin-bottom: 0.25rem;
+        }
+
+        .alert-text {
+            color: #7F1D1D;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="logo-section">
+            <svg width="40" height="40" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="15" width="12" height="30" fill="#DC2626"/>
+                <rect x="20" y="10" width="12" height="35" fill="#DC2626"/>
+                <rect x="35" y="18" width="12" height="27" fill="#DC2626"/>
+            </svg>
+            <span class="logo-text">検満管理台帳システム</span>
+        </div>
+        <div class="user-info">
+            <div class="notification-bell">
+                🔔
+                <span class="notification-badge">3</span>
+            </div>
+            <span>管理者: 山田太郎</span>
+            <button class="btn btn-secondary">ログアウト</button>
+        </div>
+    </header>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="menu-item active">
+                <span>📊</span>
+                <span>ダッシュボード</span>
+            </div>
+            <div class="menu-item">
+                <span>📋</span>
+                <span>計器台帳</span>
+            </div>
+            <div class="menu-item">
+                <span>🔔</span>
+                <span>検満アラート</span>
+            </div>
+            <div class="menu-item">
+                <span>📍</span>
+                <span>位置情報マップ</span>
+            </div>
+            <div class="menu-item">
+                <span>📈</span>
+                <span>レポート</span>
+            </div>
+            <div class="menu-item">
+                <span>👥</span>
+                <span>ユーザー管理</span>
+            </div>
+            <div class="menu-item">
+                <span>⚙️</span>
+                <span>設定</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Alert Banner -->
+            <div class="alert-banner">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                    <div class="alert-title">検満期限が近い計器があります</div>
+                    <div class="alert-text">15台の計器が今月中に検満期限を迎えます。早急な対応が必要です。</div>
+                </div>
+                <button class="btn btn-primary">詳細を見る</button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">総登録計器数</div>
+                    <div class="stat-value">2,486</div>
+                    <span class="stat-change up">↑ 126 今月追加</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">検満間近（3ヶ月以内）</div>
+                    <div class="stat-value">47</div>
+                    <span class="stat-change warning">⚠️ 要対応</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">今月交換済み</div>
+                    <div class="stat-value">23</div>
+                    <span class="stat-change up">↑ 前月比 +35%</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">作業効率</div>
+                    <div class="stat-value">94%</div>
+                    <span class="stat-change up">↑ 改善中</span>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="table-section">
+                <div class="table-header">
+                    <h2 class="table-title">計器台帳一覧</h2>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">🔽 CSVエクスポート</button>
+                        <button class="btn btn-primary">➕ 新規登録</button>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="filter-bar">
+                    <input type="text" class="filter-input" placeholder="計器番号・型式で検索">
+                    <select class="filter-input">
+                        <option>すべての状態</option>
+                        <option>正常</option>
+                        <option>検満間近</option>
+                        <option>検満期限切れ</option>
+                    </select>
+                    <select class="filter-input">
+                        <option>すべての地域</option>
+                        <option>東京都</option>
+                        <option>神奈川県</option>
+                        <option>千葉県</option>
+                    </select>
+                    <input type="date" class="filter-input">
+                </div>
+
+                <!-- Data Table -->
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>計器番号</th>
+                            <th>型式</th>
+                            <th>製造番号</th>
+                            <th>設置場所</th>
+                            <th>製造年月</th>
+                            <th>検満期限</th>
+                            <th>状態</th>
+                            <th>最終確認</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>M-2024-0156</strong></td>
+                            <td>OSK-3P4W</td>
+                            <td>SN20180456</td>
+                            <td>東京都渋谷区1-2-3</td>
+                            <td>2018年4月</td>
+                            <td><strong style="color: #DC2626;">2025年4月</strong></td>
+                            <td><span class="status-badge status-urgent">検満間近</span></td>
+                            <td>2025/01/15</td>
+                            <td>
+                                <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.85rem;">詳細</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>M-2024-0157</strong></td>
+                            <td>OSK-3P3W</td>
+                            <td>SN20190789</td>
+                            <td>東京都新宿区4-5-6</td>
+                            <td>2019年6月</td>
+                            <td>2026年6月</td>
+                            <td><span class="status-badge status-normal">正常</span></td>
+                            <td>2025/01/14</td>
+                            <td>
+                                <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.85rem;">詳細</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>M-2024-0158</strong></td>
+                            <td>OSK-1P2W</td>
+                            <td>SN20170123</td>
+                            <td>神奈川県横浜市7-8-9</td>
+                            <td>2017年12月</td>
+                            <td><strong style="color: #D97706;">2025年2月</strong></td>
+                            <td><span class="status-badge status-warning">要確認</span></td>
+                            <td>2025/01/13</td>
+                            <td>
+                                <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.85rem;">詳細</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>M-2024-0159</strong></td>
+                            <td>OSK-3P4W</td>
+                            <td>SN20200234</td>
+                            <td>千葉県船橋市10-11-12</td>
+                            <td>2020年3月</td>
+                            <td>2027年3月</td>
+                            <td><span class="status-badge status-normal">正常</span></td>
+                            <td>2025/01/12</td>
+                            <td>
+                                <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.85rem;">詳細</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>M-2024-0160</strong></td>
+                            <td>OSK-1P3W</td>
+                            <td>SN20240567</td>
+                            <td>東京都品川区13-14-15</td>
+                            <td>2024年12月</td>
+                            <td>2031年12月</td>
+                            <td><span class="status-badge status-completed">新規登録</span></td>
+                            <td>2025/01/11</td>
+                            <td>
+                                <button class="btn btn-secondary" style="padding: 4px 8px; font-size: 0.85rem;">詳細</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

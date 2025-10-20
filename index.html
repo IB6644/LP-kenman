@@ -548,31 +548,22 @@
         .phone-frame {
             width: 375px;
             height: 750px;
-            background: #1F2937;
+            background: linear-gradient(135deg, #2D3748 0%, #1A202C 100%);
             border-radius: 40px;
-            padding: 15px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 12px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.3),
+                inset 0 0 0 1px rgba(255,255,255,0.1);
             position: relative;
-        }
-
-        .phone-frame::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 30px;
-            background: #000;
-            border-radius: 20px;
         }
 
         .phone-screen {
             width: 100%;
             height: 100%;
             background: white;
-            border-radius: 25px;
+            border-radius: 28px;
             overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
         }
 
         .phone-iframe {
@@ -586,17 +577,20 @@
             width: 100%;
             max-width: 1200px;
             background: #1F2937;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 
+                0 25px 70px rgba(0,0,0,0.4),
+                0 0 0 1px rgba(255,255,255,0.1);
         }
 
         .desktop-header {
-            background: #374151;
-            padding: 10px 20px;
+            background: linear-gradient(to bottom, #4A5568 0%, #2D3748 100%);
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
         }
 
         .desktop-title {
@@ -681,9 +675,20 @@
             margin-top: 3rem;
         }
 
+        /* Add subtle animation */
+        @keyframes float-device {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .phone-frame {
+            animation: float-device 4s ease-in-out infinite;
+        }
+
         @media (max-width: 768px) {
             .phone-frame {
-                transform: scale(0.8);
+                transform: scale(0.7);
+                animation: none;
             }
             
             .demo-device {
@@ -692,6 +697,10 @@
             
             .desktop-frame {
                 margin: 0 -20px;
+            }
+            
+            .demo-description {
+                padding: 0 20px;
             }
         }
 
@@ -1113,7 +1122,7 @@
                         </div>
                         <div class="desktop-screen">
                             <iframe 
-                                src="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app/admin" 
+                                src="./admin-demo.html" 
                                 class="desktop-iframe"
                                 title="OSAKI 検満管理システム 管理画面デモ"
                                 loading="lazy">
@@ -1131,7 +1140,7 @@
                         </ul>
                         <p class="demo-note">
                             PC/タブレットでの閲覧推奨<br>
-                            <a href="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app/admin" target="_blank" class="demo-link">
+                            <a href="./admin-demo.html" target="_blank" class="demo-link">
                                 管理画面を別ウィンドウで開く →
                             </a>
                         </p>
