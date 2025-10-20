@@ -495,6 +495,206 @@
             background: #F3F4F6;
         }
 
+        /* Demo Tabs */
+        .demo-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .demo-tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6B7280;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .demo-tab:hover {
+            border-color: #16A34A;
+            color: #16A34A;
+        }
+
+        .demo-tab.active {
+            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            color: white;
+            border-color: #16A34A;
+        }
+
+        .demo-content {
+            display: none;
+            margin-top: 3rem;
+        }
+
+        .demo-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .demo-device {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Phone Frame */
+        .phone-frame {
+            width: 375px;
+            height: 750px;
+            background: #1F2937;
+            border-radius: 40px;
+            padding: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #000;
+            border-radius: 20px;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .phone-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Desktop Frame */
+        .desktop-frame {
+            width: 100%;
+            max-width: 1200px;
+            background: #1F2937;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .desktop-header {
+            background: #374151;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .desktop-title {
+            color: white;
+            font-weight: 500;
+        }
+
+        .desktop-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .control-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #DC2626;
+        }
+
+        .control-dot:nth-child(2) {
+            background: #FCD34D;
+        }
+
+        .control-dot:nth-child(3) {
+            background: #16A34A;
+        }
+
+        .desktop-screen {
+            width: 100%;
+            height: 700px;
+            background: white;
+        }
+
+        .desktop-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .demo-description {
+            max-width: 400px;
+        }
+
+        .demo-description h3 {
+            color: #1F2937;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .demo-description ul {
+            list-style: none;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-description li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .demo-note {
+            padding: 1rem;
+            background: #F3F4F6;
+            border-radius: 10px;
+            color: #4B5563;
+            text-align: center;
+        }
+
+        .demo-link {
+            color: #16A34A;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .demo-link:hover {
+            text-decoration: underline;
+        }
+
+        .demo-footer {
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .phone-frame {
+                transform: scale(0.8);
+            }
+            
+            .demo-device {
+                flex-direction: column;
+            }
+            
+            .desktop-frame {
+                margin: 0 -20px;
+            }
+        }
+
         /* CTA Section */
         .cta {
             padding: 80px 20px;
@@ -858,18 +1058,91 @@
         <div class="demo-container">
             <div class="section-header">
                 <h2 class="section-title">実際の操作画面をご体験</h2>
-                <p class="section-subtitle">スマートフォンでQRコードを読み取ってお試しください</p>
+                <p class="section-subtitle">現場作業から管理画面まで、全機能をお試しいただけます</p>
             </div>
-            <div class="demo-frame">
-                <iframe 
-                    src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app" 
-                    class="demo-iframe"
-                    title="OSAKI 検満管理システム デモ"
-                    loading="lazy">
-                </iframe>
-                <p style="margin-top: 1.5rem; color: #6B7280;">
-                    デモURL: https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app<br>
-                    ※ デモ環境のため、実際のデータは保存されません
+            
+            <!-- Demo Tabs -->
+            <div class="demo-tabs">
+                <button class="demo-tab active" onclick="switchDemo('mobile')">📱 現場作業（スマホ）</button>
+                <button class="demo-tab" onclick="switchDemo('desktop')">💻 管理画面（PC）</button>
+            </div>
+
+            <!-- Mobile Demo -->
+            <div id="mobile-demo" class="demo-content active">
+                <div class="demo-device">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <iframe 
+                                src="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app" 
+                                class="phone-iframe"
+                                title="OSAKI 検満管理システム モバイルデモ"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <h3>📱 現場作業用モバイルアプリ</h3>
+                        <ul>
+                            <li>✓ カメラで計器を撮影</li>
+                            <li>✓ AI自動認識で型式・製造番号を読取</li>
+                            <li>✓ 位置情報を自動記録</li>
+                            <li>✓ 検満期限を自動計算</li>
+                            <li>✓ オフラインでも作業可能</li>
+                        </ul>
+                        <p class="demo-note">
+                            スマートフォンでアクセス推奨<br>
+                            <a href="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app" target="_blank" class="demo-link">
+                                別ウィンドウで開く →
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Demo -->
+            <div id="desktop-demo" class="demo-content">
+                <div class="demo-device">
+                    <div class="desktop-frame">
+                        <div class="desktop-header">
+                            <span class="desktop-title">🗂️ 検満管理台帳システム</span>
+                            <div class="desktop-controls">
+                                <span class="control-dot"></span>
+                                <span class="control-dot"></span>
+                                <span class="control-dot"></span>
+                            </div>
+                        </div>
+                        <div class="desktop-screen">
+                            <iframe 
+                                src="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app/admin" 
+                                class="desktop-iframe"
+                                title="OSAKI 検満管理システム 管理画面デモ"
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="demo-description">
+                        <h3>💻 管理者用ダッシュボード</h3>
+                        <ul>
+                            <li>✓ 計器台帳の一元管理</li>
+                            <li>✓ 検満期限カレンダー表示</li>
+                            <li>✓ 自動アラート設定</li>
+                            <li>✓ 月次レポート自動生成</li>
+                            <li>✓ CSV出力・既存システム連携</li>
+                        </ul>
+                        <p class="demo-note">
+                            PC/タブレットでの閲覧推奨<br>
+                            <a href="https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app/admin" target="_blank" class="demo-link">
+                                管理画面を別ウィンドウで開く →
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-footer">
+                <p style="text-align: center; color: #6B7280; margin-top: 2rem;">
+                    ※ デモ環境のため、実際のデータは保存されません<br>
+                    デモURL: https://meter-reading-mvp001-6k8zrsnk5-katsupins-projects.vercel.app
                 </p>
             </div>
         </div>
@@ -937,6 +1210,26 @@
     </footer>
 
     <script>
+        // Demo switcher
+        function switchDemo(type) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.demo-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.demo-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Add active class to selected tab and content
+            if (type === 'mobile') {
+                document.querySelector('.demo-tab:nth-child(1)').classList.add('active');
+                document.getElementById('mobile-demo').classList.add('active');
+            } else {
+                document.querySelector('.demo-tab:nth-child(2)').classList.add('active');
+                document.getElementById('desktop-demo').classList.add('active');
+            }
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
