@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大崎電気工業の検針アプリ - スマートフォンでメーターを撮影するだけで検針業務をDX化。作業工数を最大60%削減。">
+    <title>検針アプリで実現する業務変革 | 大崎電気工業株式会社</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
+    <!-- Custom CSS embedded -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #A61F24;
+            --primary-dark: #8A1A1E;
+            --secondary-color: #1A73E8;
+            --text-primary: #2C2C2C;
+            --text-secondary: #5F6368;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8F9FA;
+            --success-color: #34A853;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            line-height: 1.6;
+        }
+        
+        /* Typography Enhancement */
+        h1 {
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-weight: 700;
+            letter-spacing: -0.005em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        
+        .lead-text {
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background: var(--primary-color);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+        }
+        
+        .cta-button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            margin: 3px 0;
+        }
+        
+        /* Hero */
+        .hero {
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(166, 31, 36, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #A61F24, #1A73E8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            letter-spacing: 0.02em;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            background: #2C2C2C;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        /* スマホ画面上部の黒い線を削除 */
+        
+        .demo-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 24px;
+            background: white;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-light);
+        }
+        
+        /* Workflow section override */
+        section.workflow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Problems */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .problem-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(166, 31, 36, 0.1);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .solution {
+            border-top: 1px solid #E8EAED;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .solution-label {
+            display: inline-block;
+            background: var(--success-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(26, 115, 232, 0.1);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 32px;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            background: var(--bg-light);
+            padding: 80px 0;
+        }
+        
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .demo-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #E8EAED;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .demo-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .demo-panel {
+            display: none;
+        }
+        
+        .demo-panel.active {
+            display: block;
+        }
+        
+        .mobile-demo-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .admin-demo-wrapper {
+            text-align: center;
+        }
+        
+        .laptop-frame {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #2C2C2C;
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .laptop-frame::before {
+            content: '';
+            display: block;
+            height: 20px;
+            background: #1a1a1a;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 8px;
+        }
+        
+        .demo-iframe-admin {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .demo-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .demo-info h3 {
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .demo-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            display: grid;
+            gap: 1.2rem;
+        }
+        
+        .feature-list li {
+            padding: 1rem 1rem 1rem 3rem;
+            position: relative;
+            background: var(--bg-light);
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+        
+        .feature-list li:hover {
+            background: linear-gradient(90deg, rgba(166, 31, 36, 0.05) 0%, transparent 100%);
+            transform: translateX(5px);
+        }
+        
+        .feature-list li i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--success-color);
+            font-size: 1.2rem;
+            background: white;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Workflow */
+        .workflow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+        }
+        
+        .workflow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .workflow .section-title,
+        .workflow .section-subtitle {
+            color: white !important;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .workflow h2,
+        .workflow h3,
+        .workflow p {
+            color: white !important;
+        }
+        
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-item {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            min-width: 150px;
+            position: relative;
+        }
+        
+        .step-item::after {
+            content: '→';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        .step-item:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #FFD700;
+            color: #764ba2;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 32px;
+            color: white !important;
+            transition: all 0.3s;
+        }
+        
+        .step-item:hover .step-icon {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .step-item h3 {
+            color: white !important;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .step-item {
+            color: white !important;
+        }
+        
+        /* ROI */
+        .roi-calculator {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #E8EAED;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .roi-results {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #E8EAED;
+        }
+        
+        .result-item:last-child {
+            border: none;
+        }
+        
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white !important;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-section p {
+            color: white !important;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white !important;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-white:hover {
+            background: var(--bg-light);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1F1F1F;
+            color: white !important;
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            color: white !important;
+            opacity: 0.9;
+        }
+        
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 2rem;
+            filter: brightness(0) invert(1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .phone-frame {
+                width: 280px;
+                height: 560px;
+                margin: 0 auto;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+            }
+            
+            .step-item::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -20px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .mobile-demo-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-info {
+                margin-top: 2rem;
+            }
+            
+            .demo-iframe-admin {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <img src="images/osaki-logo.svg" alt="大崎電気工業" class="logo">
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#features" class="nav-link">機能</a>
+                    <a href="#demo" class="nav-link">デモ</a>
+                    <a href="#benefits" class="nav-link">導入メリット</a>
+                    <a href="#roi" class="nav-link">導入効果</a>
+                    <a href="#contact" class="nav-link cta-button">お問い合わせ</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text" data-aos="fade-right">
+                    <div class="hero-badge">
+                        スマートメーター国内シェアNo.1の技術力
+                    </div>
+                    <h1 class="hero-title">
+                        検針アプリで実現する<br>
+                        <span class="gradient-text">業務変革</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        現場と会社をつなぐ新しい検針のDX<br>
+                        撮影するだけで、検針業務が変わる
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">60<span style="font-size: 1.5rem;">%</span></div>
+                            <div class="stat-label">作業工数削減</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">99<span style="font-size: 1.5rem;">%</span></div>
+                            <div class="stat-label">読取精度</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95<span style="font-size: 1.5rem;">%</span></div>
+                            <div class="stat-label">エラー削減</div>
+                        </div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/admin" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-desktop"></i> デモを体験
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-download"></i> 資料請求
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="phone-frame">
+                        <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/" 
+                                class="demo-iframe"
+                                title="検針アプリデモ"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems -->
+    <section class="section" id="problems">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">検針業務の<span class="highlight">課題</span>を解決</h2>
+                <p class="section-subtitle">
+                    深刻化する業界課題に、大崎電気工業の技術力でお応えします
+                </p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="problem-icon">
+                        <i class="fas fa-users-slash"></i>
+                    </div>
+                    <h3>人手不足の深刻化</h3>
+                    <p>検針員の高齢化と人材確保の困難さ</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>スマホ1台で誰でも簡単検針</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="problem-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <h3>アナログ手書き作業</h3>
+                    <p>非効率な転記作業と紙ベースの管理</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>撮影だけで自動デジタル化</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="problem-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>検針・転記ミス</h3>
+                    <p>人為的エラーによる請求トラブル</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>AI技術で99%以上の精度</p>
+                    </div>
+                </div>
+                <div class="problem-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>データ活用の遅れ</h3>
+                    <p>紙管理によるデータ分析の限界</p>
+                    <div class="solution">
+                        <span class="solution-label">解決策</span>
+                        <p>リアルタイムデータ分析</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">主要<span class="highlight">機能</span></h2>
+                <p class="section-subtitle">
+                    100年以上の計測技術と最新のAI技術を融合
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI自動読取</h3>
+                    <p>撮影したメーター画像から瞬時に数値を読み取り</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>クラウド同期</h3>
+                    <p>データを自動保存、リアルタイムで管理画面に反映</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>異常値検知</h3>
+                    <p>前回値との比較で異常を自動検知</p>
+                </div>
+                <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>交換管理</h3>
+                    <p>メーター交換時期を予測し提案</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="demo-container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">実際の<span class="highlight">画面</span>をご覧ください</h2>
+                <p class="section-subtitle">
+                    検針アプリと管理画面のデモをお試しいただけます
+                </p>
+            </div>
+            <div class="demo-tabs" data-aos="fade-up">
+                <button class="demo-tab active" onclick="switchDemo('mobile')">
+                    <i class="fas fa-mobile-alt"></i> 検針アプリ（スマホ）
+                </button>
+                <button class="demo-tab" onclick="switchDemo('admin')">
+                    <i class="fas fa-laptop"></i> 管理画面（PC）
+                </button>
+            </div>
+            <div class="demo-content">
+                <div class="demo-panel active" id="mobile-demo">
+                    <div class="mobile-demo-wrapper">
+                        <div class="phone-frame" style="margin: 0 auto;">
+                            <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/" 
+                                    class="demo-iframe"
+                                    title="検針アプリデモ"></iframe>
+                        </div>
+                        <div class="demo-info">
+                            <h3>検針アプリの特徴</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> 直感的な操作画面</li>
+                                <li><i class="fas fa-check"></i> カメラで撮影するだけ</li>
+                                <li><i class="fas fa-check"></i> AI自動読取機能</li>
+                                <li><i class="fas fa-check"></i> オフライン対応</li>
+                                <li><i class="fas fa-check"></i> 複数メーター管理</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-panel" id="admin-demo">
+                    <div class="admin-demo-wrapper">
+                        <div class="laptop-frame">
+                            <iframe src="https://meter-reading-mvp001-b1y668alc-katsupins-projects.vercel.app/admin" 
+                                    class="demo-iframe-admin"
+                                    title="管理画面デモ"></iframe>
+                        </div>
+                        <div class="demo-info" style="max-width: 600px; margin: 2rem auto;">
+                            <h3>管理画面の特徴</h3>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check"></i> リアルタイムデータ確認</li>
+                                <li><i class="fas fa-check"></i> 検針状況の一覧管理</li>
+                                <li><i class="fas fa-check"></i> 異常値アラート機能</li>
+                                <li><i class="fas fa-check"></i> CSV出力・システム連携</li>
+                                <li><i class="fas fa-check"></i> メーター交換予測</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="workflow" id="workflow">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">簡単5ステップ</h2>
+                <p class="section-subtitle">誰でも直感的に操作できる</p>
+            </div>
+            <div class="workflow-steps">
+                <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>アプリ起動</h3>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>カメラ起動</h3>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <h3>自動認識</h3>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI読取</h3>
+                </div>
+                <div class="step-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="step-number">5</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h3>完了</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="section" id="roi">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">導入効果と<span class="highlight">ROI</span></h2>
+                <p class="section-subtitle">具体的な数値で見る投資対効果</p>
+            </div>
+            <div class="roi-calculator" data-aos="zoom-in">
+                <h3>導入効果シミュレーション</h3>
+                <div class="form-group">
+                    <label>月間検針件数</label>
+                    <input type="number" id="meterCount" value="1000">
+                </div>
+                <div class="form-group">
+                    <label>検針員数</label>
+                    <input type="number" id="workerCount" value="5">
+                </div>
+                <div class="roi-results">
+                    <div class="result-item">
+                        <span>年間削減工数</span>
+                        <span class="result-value" id="savedHours">2,400</span>
+                        <span>時間</span>
+                    </div>
+                    <div class="result-item">
+                        <span>年間削減コスト</span>
+                        <span class="result-value" id="savedCost">360</span>
+                        <span>万円</span>
+                    </div>
+                    <div class="result-item">
+                        <span>投資回収期間</span>
+                        <span class="result-value" id="roiPeriod">6</span>
+                        <span>ヶ月</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2 class="cta-title" data-aos="zoom-in">
+                検針業務の未来を、<br>今すぐ体験してください
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: white !important;">
+                無料デモ・トライアルをご用意しています
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:smart-solution@osaki.co.jp" class="btn btn-white">
+                    <i class="fas fa-envelope"></i> お問い合わせ
+                </a>
+                <a href="tel:03-3443-7171" class="btn btn-white">
+                    <i class="fas fa-phone"></i> 電話で相談
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="images/osaki-logo.svg" alt="大崎電気工業" class="footer-logo">
+            <p>© 2025 大崎電気工業株式会社. All Rights Reserved.</p>
+            <p style="margin-top: 1rem; color: white !important;">
+                〒141-8646 東京都品川区東五反田2-10-2 東五反田スクエア<br>
+                TEL: 03-3443-7171 | Email: smart-solution@osaki.co.jp
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 70;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        
+        hamburger?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Demo switcher
+        function switchDemo(type) {
+            const tabs = document.querySelectorAll('.demo-tab');
+            const panels = document.querySelectorAll('.demo-panel');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            panels.forEach(panel => panel.classList.remove('active'));
+            
+            if (type === 'mobile') {
+                tabs[0].classList.add('active');
+                document.getElementById('mobile-demo').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('admin-demo').classList.add('active');
+            }
+        }
+        
+        // ROI Calculator
+        function calculateROI() {
+            const meterCount = parseInt(document.getElementById('meterCount').value) || 1000;
+            const workerCount = parseInt(document.getElementById('workerCount').value) || 5;
+            
+            const savedHours = Math.round(meterCount * 0.06 * 12);
+            const savedCost = Math.round(savedHours * 1500 / 10000);
+            const roiPeriod = Math.round(180 / savedCost * 12);
+            
+            document.getElementById('savedHours').textContent = savedHours.toLocaleString();
+            document.getElementById('savedCost').textContent = savedCost;
+            document.getElementById('roiPeriod').textContent = roiPeriod;
+        }
+        
+        document.getElementById('meterCount')?.addEventListener('input', calculateROI);
+        document.getElementById('workerCount')?.addEventListener('input', calculateROI);
+        
+        calculateROI();
+    </script>
+</body>
+</html>

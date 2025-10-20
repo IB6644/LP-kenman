@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSAKI 検満管理システム - プレゼンテーション</title>
+    <title>OSAKI Electric 検針アプリ - プレゼンテーション</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
             overflow: hidden;
-            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .presentation-container {
@@ -54,6 +54,7 @@
             transform: translateX(-100%);
         }
 
+        /* Navigation */
         .nav-buttons {
             position: fixed;
             bottom: 30px;
@@ -70,7 +71,7 @@
 
         .nav-btn {
             padding: 12px 24px;
-            background: #16A34A;
+            background: #DC2626;
             color: white;
             border: none;
             border-radius: 25px;
@@ -81,9 +82,9 @@
         }
 
         .nav-btn:hover:not(:disabled) {
-            background: #15803D;
+            background: #B91C1C;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(22, 163, 74, 0.4);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
         }
 
         .nav-btn:disabled {
@@ -109,10 +110,11 @@
 
         .progress-fill {
             height: 100%;
-            background: #16A34A;
+            background: #DC2626;
             transition: width 0.3s;
         }
 
+        /* Slide Content Styles */
         h1 {
             color: #1F2937;
             font-size: 3em;
@@ -143,11 +145,6 @@
         }
 
         .highlight {
-            color: #16A34A;
-            font-weight: bold;
-        }
-
-        .danger {
             color: #DC2626;
             font-weight: bold;
         }
@@ -172,10 +169,10 @@
         }
 
         .feature-card {
-            background: #F0FDF4;
+            background: #F9FAFB;
             padding: 30px;
             border-radius: 15px;
-            border-left: 4px solid #16A34A;
+            border-left: 4px solid #DC2626;
         }
 
         .feature-card h4 {
@@ -251,7 +248,7 @@
         .step-number {
             width: 60px;
             height: 60px;
-            background: #16A34A;
+            background: #DC2626;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -263,7 +260,7 @@
         }
 
         .roi-calculator {
-            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+            background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
             padding: 40px;
             border-radius: 15px;
             margin-top: 30px;
@@ -282,7 +279,7 @@
 
         .roi-value {
             font-size: 2.5em;
-            color: #16A34A;
+            color: #DC2626;
             font-weight: bold;
         }
 
@@ -291,8 +288,22 @@
             margin-top: 10px;
         }
 
+        .demo-preview {
+            background: #F3F4F6;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .demo-preview img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         .cta-box {
-            background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
             color: white;
             padding: 40px;
             border-radius: 15px;
@@ -316,7 +327,7 @@
             display: inline-block;
             padding: 18px 40px;
             background: white;
-            color: #16A34A;
+            color: #DC2626;
             text-decoration: none;
             border-radius: 50px;
             font-size: 1.2em;
@@ -329,24 +340,40 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .free-badge {
-            display: inline-block;
-            background: #DC2626;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-            margin-bottom: 30px;
+        .contact-info {
+            background: #F9FAFB;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .contact-info h4 {
+            color: #1F2937;
+            margin-bottom: 20px;
+            font-size: 1.4em;
         }
 
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .slide {
                 padding: 40px 30px;
@@ -363,6 +390,28 @@
             p {
                 font-size: 1.1em;
             }
+
+            .nav-buttons {
+                padding: 10px 20px;
+            }
+
+            .nav-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+                border: 1px solid #E5E7EB;
+            }
+            
+            .nav-buttons {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -378,64 +427,63 @@
                     <text x="55" y="38" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1F2937">OSAKI</text>
                 </svg>
             </div>
-            <div class="free-badge">🎉 位置情報提供で1年間無料</div>
-            <h1>AI検満管理システム</h1>
+            <h1>スマート検針アプリケーション</h1>
             <p style="font-size: 1.8em; color: #4B5563; margin-bottom: 40px;">
-                紙の台帳管理から解放<br>
-                写真撮影だけで計器情報を自動データ化
+                検針業務のDX化を実現する<br>
+                革新的なモバイルソリューション
             </p>
             <div style="margin-top: 60px;">
                 <p style="font-size: 1.3em;">
-                    <span class="highlight">工事業者様の業務効率を劇的に改善</span><br>
-                    検満期限を自動検出し、交換工事の受注機会を逃しません
+                    <span class="highlight">OSAKI Electric Co., Ltd.</span><br>
+                    電力量計測のリーディングカンパニー
                 </p>
             </div>
             <div style="margin-top: 80px; padding-top: 40px; border-top: 2px solid #E5E7EB;">
                 <p style="font-size: 1.1em; color: #9CA3AF;">
-                    2025年1月 | 工事業者様向けソリューション
+                    2025年1月 | 内部レビュー用プレゼンテーション
                 </p>
             </div>
         </div>
 
         <!-- Slide 2: Current Problems -->
         <div class="slide">
-            <h2>🔴 工事業者様の現状の課題</h2>
-            <p>日々の業務でこんな悩みはありませんか？</p>
+            <h2>🔴 現在の検針業務の課題</h2>
+            <p>従来の検針方法では、以下の問題が発生しています</p>
             <ul class="problem-list">
-                <li>📝 現場で手書き → 事務所でエクセル転記の二度手間</li>
-                <li>⏰ 検満期限の管理が煩雑、見落としで機会損失</li>
-                <li>🔍 汚れた銘板や小さい文字の読み取りミス</li>
-                <li>📊 月次報告書作成に半日以上かかる</li>
-                <li>🏢 複数現場の情報が一元管理できない</li>
-                <li>💼 検満間近の計器を見逃し、競合に案件を取られる</li>
+                <li>📝 手書きによる記録ミス・読み取りエラーの頻発</li>
+                <li>⏰ 現場での作業時間が長く、効率が悪い</li>
+                <li>📊 データの集計・分析に時間がかかる</li>
+                <li>💰 人件費・管理コストの増大</li>
+                <li>🔄 リアルタイムでの情報共有が困難</li>
             </ul>
             <div style="margin-top: 50px; padding: 30px; background: #FEF2F2; border-radius: 15px;">
                 <h3 style="color: #DC2626;">年間損失額の試算</h3>
                 <p style="font-size: 1.4em; color: #7F1D1D;">
-                    <strong>約480万円</strong>の機会損失・人件費ロス<br>
-                    <span style="font-size: 0.8em;">（作業員10名規模の場合）</span>
+                    <strong>約1,200万円</strong>の機会損失が発生<br>
+                    <span style="font-size: 0.8em;">（100名規模の検針員を想定）</span>
                 </p>
             </div>
         </div>
 
         <!-- Slide 3: Solution Overview -->
         <div class="slide">
-            <h2>✨ AI検満管理システムが解決</h2>
-            <p>写真を撮るだけで全ての課題を解決します</p>
+            <h2>✨ ソリューション概要</h2>
+            <p>OSAKIスマート検針アプリが全ての課題を解決します</p>
             <ul class="solution-list">
-                <li>計器情報（型式・製造番号・製造年月）をAI自動読取</li>
-                <li>検満期限を自動計算、6ヶ月前から段階的アラート</li>
-                <li>位置情報付きでクラウド管理、最適巡回ルート生成</li>
-                <li>月次報告書をワンクリック自動生成</li>
-                <li>計量値も読取可能、検針アプリとしても活用</li>
-                <li>紙・エクセル不要のペーパーレス化実現</li>
+                <li>AI画像認識による自動読み取り（精度99.5%）</li>
+                <li>作業時間を最大70%削減</li>
+                <li>リアルタイムでのクラウドデータ同期</li>
+                <li>直感的なUIで誰でも簡単に操作可能</li>
+                <li>オフライン対応で通信環境を選ばない</li>
             </ul>
-            <div style="margin-top: 40px; background: #F0FDF4; padding: 30px; border-radius: 15px;">
-                <h3 style="color: #16A34A;">特別オファー</h3>
-                <p style="color: #14532D; font-size: 1.2em;">
-                    計器情報と位置情報の提供にご協力いただける場合<br>
-                    <strong style="font-size: 1.4em;">アプリ使用料1年間無料！</strong>
-                </p>
+            <div class="demo-preview">
+                <h3>アプリケーション画面イメージ</h3>
+                <p>スマートフォンのカメラでメーターを撮影するだけ</p>
+                <div style="background: #1F2937; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <p style="color: white; font-family: monospace;">
+                        📱 Camera → 🤖 AI Recognition → ☁️ Cloud Sync → ✅ Complete
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -445,63 +493,58 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <h4>📸 AI画像認識</h4>
-                    <p>認識精度99.5%以上。汚れや反射があっても正確に計器情報を読み取り。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🔔 自動アラート</h4>
-                    <p>検満6ヶ月前、3ヶ月前、1ヶ月前に通知。計画的な営業活動を支援。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>📍 位置情報管理</h4>
-                    <p>計器の位置を地図上で管理。最適な巡回ルートで移動時間40%削減。</p>
+                    <p>最新のAI技術により、メーター数値を瞬時に読み取り。手入力不要で正確性を保証。</p>
                 </div>
                 <div class="feature-card">
                     <h4>☁️ クラウド同期</h4>
-                    <p>現場・事務所・本社でリアルタイム共有。オフラインでも作業可能。</p>
+                    <p>撮影データは即座にクラウドへ。リアルタイムで本部と情報共有。</p>
                 </div>
                 <div class="feature-card">
                     <h4>📊 自動レポート</h4>
-                    <p>月次報告書を自動生成。グラフ付きで顧客への報告もスムーズ。</p>
+                    <p>収集データを自動で集計・分析。管理者向けダッシュボードで可視化。</p>
                 </div>
                 <div class="feature-card">
-                    <h4>🔄 既存システム連携</h4>
-                    <p>CSV出力、API連携で既存の業務システムとシームレスに統合。</p>
+                    <h4>🔒 セキュリティ</h4>
+                    <p>金融機関レベルの暗号化技術で、データの安全性を確保。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 マルチデバイス</h4>
+                    <p>iOS/Android両対応。タブレットでも快適に利用可能。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🌐 オフライン対応</h4>
+                    <p>通信環境がない場所でも作業可能。後で自動同期。</p>
                 </div>
             </div>
         </div>
 
         <!-- Slide 5: Workflow -->
         <div class="slide">
-            <h2>📋 簡単4ステップで業務完了</h2>
-            <p>誰でもすぐに使える直感的な操作</p>
+            <h2>📋 導入ワークフロー</h2>
+            <p>シンプルな3ステップで検針業務を効率化</p>
             <div class="workflow-steps">
                 <div class="workflow-step">
                     <div class="step-number">1</div>
                     <h4>撮影</h4>
-                    <p>スマホで計器を撮影<br>位置情報も自動記録</p>
+                    <p>スマートフォンでメーターを撮影</p>
                 </div>
                 <div class="workflow-step">
                     <div class="step-number">2</div>
                     <h4>確認</h4>
-                    <p>AI認識結果を確認<br>必要に応じて修正</p>
+                    <p>AI認識結果を確認・必要に応じて修正</p>
                 </div>
                 <div class="workflow-step">
                     <div class="step-number">3</div>
-                    <h4>登録</h4>
-                    <p>データベースに登録<br>検満期限を自動計算</p>
-                </div>
-                <div class="workflow-step">
-                    <div class="step-number">4</div>
-                    <h4>通知</h4>
-                    <p>検満間近で自動通知<br>営業機会を逃さない</p>
+                    <h4>送信</h4>
+                    <p>データをクラウドへ送信・完了</p>
                 </div>
             </div>
             <div style="margin-top: 50px; background: #F0FDF4; padding: 30px; border-radius: 15px;">
                 <h3 style="color: #16A34A;">導入効果</h3>
                 <p style="color: #14532D; font-size: 1.2em;">
-                    従来の紙ベース管理と比較して<br>
-                    <strong style="font-size: 1.4em;">事務作業時間を75%削減</strong><br>
-                    検満案件の受注率が3倍に向上
+                    従来の検針作業と比較して<br>
+                    <strong style="font-size: 1.4em;">作業時間を70%削減</strong><br>
+                    1日の検針件数が大幅に増加
                 </p>
             </div>
         </div>
@@ -510,76 +553,45 @@
         <div class="slide">
             <h2>💰 投資対効果（ROI）分析</h2>
             <div class="roi-calculator">
-                <h3>年間削減効果シミュレーション（作業員10名の場合）</h3>
+                <h3>年間削減効果シミュレーション（検針員100名の場合）</h3>
                 <div class="roi-grid">
                     <div class="roi-item">
-                        <div class="roi-value">75%</div>
-                        <div class="roi-label">事務作業時間削減</div>
+                        <div class="roi-value">70%</div>
+                        <div class="roi-label">作業時間削減</div>
                     </div>
                     <div class="roi-item">
-                        <div class="roi-value">480万円</div>
+                        <div class="roi-value">1,200万円</div>
                         <div class="roi-label">年間コスト削減</div>
                     </div>
                     <div class="roi-item">
-                        <div class="roi-value">3倍</div>
-                        <div class="roi-label">検満案件受注率</div>
+                        <div class="roi-value">6ヶ月</div>
+                        <div class="roi-label">投資回収期間</div>
                     </div>
                     <div class="roi-item">
-                        <div class="roi-value">0件</div>
-                        <div class="roi-label">転記ミス</div>
+                        <div class="roi-value">99.5%</div>
+                        <div class="roi-label">読取精度</div>
                     </div>
                 </div>
             </div>
             <div style="margin-top: 40px; padding: 30px; background: #FEF2F2; border-radius: 15px;">
                 <h3>追加効果</h3>
                 <ul style="list-style: none; color: #4B5563;">
-                    <li style="margin-bottom: 15px;">✓ ペーパーレス化による保管コスト削減</li>
+                    <li style="margin-bottom: 15px;">✓ ヒューマンエラーの削減による品質向上</li>
                     <li style="margin-bottom: 15px;">✓ リアルタイムデータによる経営判断の迅速化</li>
-                    <li style="margin-bottom: 15px;">✓ 作業員の負担軽減による定着率向上</li>
-                    <li>✓ 顧客満足度向上による追加受注獲得</li>
+                    <li style="margin-bottom: 15px;">✓ 従業員満足度の向上（作業負担軽減）</li>
+                    <li>✓ 環境負荷の削減（ペーパーレス化）</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Slide 7: Use Cases -->
-        <div class="slide">
-            <h2>📱 活用シーン</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4>🏗️ 新規工事現場</h4>
-                    <p>設置計器を撮影するだけで台帳作成完了。初回点検データも同時記録。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🔄 定期巡回</h4>
-                    <p>最適ルートで効率的に巡回。検満間近の計器を自動でリストアップ。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>📋 月次報告</h4>
-                    <p>ワンクリックで報告書生成。グラフ付きで分かりやすく顧客に提示。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>🚨 緊急対応</h4>
-                    <p>位置情報から最寄りの作業員を派遣。過去の点検履歴も即座に確認。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>💼 営業活動</h4>
-                    <p>検満予定リストから効率的に営業。データに基づく説得力のある提案。</p>
-                </div>
-                <div class="feature-card">
-                    <h4>📊 経営分析</h4>
-                    <p>作業効率、受注率、収益性を可視化。データドリブンな経営判断。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 8: Demo -->
+        <!-- Slide 7: Demo -->
         <div class="slide">
             <h2>🎯 ライブデモ</h2>
             <p>実際のアプリケーションをご体験ください</p>
-            <div style="background: #1F2937; padding: 40px; border-radius: 15px; margin-top: 30px;">
+            <div class="demo-preview" style="background: #1F2937; padding: 40px;">
                 <h3 style="color: white;">オンラインデモ環境</h3>
                 <p style="color: rgba(255,255,255,0.8); margin-bottom: 30px;">
-                    スマートフォンでQRコードを読み取るか、以下のURLにアクセス
+                    以下のQRコードまたはURLからアクセスできます
                 </p>
                 <div style="background: white; padding: 30px; border-radius: 10px; margin-bottom: 30px;">
                     <p style="color: #4B5563; font-family: monospace; font-size: 0.9em; word-break: break-all;">
@@ -592,46 +604,77 @@
                 </p>
             </div>
             <div style="margin-top: 30px;">
-                <h3>デモで体験できること</h3>
+                <h3>デモ環境の機能</h3>
                 <ul style="list-style: none;">
-                    <li style="margin-bottom: 15px;">✓ 計器撮影からAI認識までの流れ</li>
-                    <li style="margin-bottom: 15px;">✓ 検満期限の自動計算</li>
-                    <li style="margin-bottom: 15px;">✓ 位置情報付き台帳登録</li>
-                    <li>✓ レポート生成機能</li>
+                    <li style="margin-bottom: 15px;">✓ カメラを使用したメーター撮影シミュレーション</li>
+                    <li style="margin-bottom: 15px;">✓ AI認識結果の確認画面</li>
+                    <li style="margin-bottom: 15px;">✓ データ送信プロセスの体験</li>
+                    <li>✓ 管理者ダッシュボードのプレビュー</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Slide 9: Implementation Plan -->
+        <!-- Slide 8: Implementation Plan -->
         <div class="slide">
-            <h2>📅 導入ステップ</h2>
+            <h2>📅 導入計画</h2>
             <div style="background: #F9FAFB; padding: 30px; border-radius: 15px;">
-                <h3>ステップ1：無料トライアル（即日〜）</h3>
+                <h3>フェーズ1：パイロット運用（1-2ヶ月）</h3>
                 <ul style="list-style: none; color: #4B5563;">
-                    <li>• お申し込み後、即日利用開始</li>
-                    <li>• 5台まで無料で試用可能</li>
-                    <li>• 基本操作のオンライン研修（30分）</li>
-                </ul>
-            </div>
-            <div style="background: #F0FDF4; padding: 30px; border-radius: 15px; margin-top: 20px;">
-                <h3>ステップ2：本格導入（2週間〜）</h3>
-                <ul style="list-style: none; color: #4B5563;">
-                    <li>• 全作業員のアカウント発行</li>
-                    <li>• 既存データのインポート支援</li>
-                    <li>• カスタマイズ設定（アラート、レポート形式等）</li>
+                    <li>• 選定地域での小規模導入</li>
+                    <li>• 10-20名の検針員で試験運用</li>
+                    <li>• フィードバック収集と改善</li>
                 </ul>
             </div>
             <div style="background: #FEF2F2; padding: 30px; border-radius: 15px; margin-top: 20px;">
-                <h3>ステップ3：運用最適化（1ヶ月〜）</h3>
+                <h3>フェーズ2：段階的展開（3-4ヶ月）</h3>
                 <ul style="list-style: none; color: #4B5563;">
-                    <li>• 運用状況のレビュー</li>
-                    <li>• 業務フローの最適化提案</li>
-                    <li>• 追加機能のカスタマイズ</li>
+                    <li>• 対象地域の拡大</li>
+                    <li>• 50名規模への展開</li>
+                    <li>• 運用プロセスの最適化</li>
+                </ul>
+            </div>
+            <div style="background: #F0FDF4; padding: 30px; border-radius: 15px; margin-top: 20px;">
+                <h3>フェーズ3：全面展開（5-6ヶ月）</h3>
+                <ul style="list-style: none; color: #4B5563;">
+                    <li>• 全検針員への導入</li>
+                    <li>• 既存システムとの完全統合</li>
+                    <li>• 継続的な改善とサポート</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Slide 10: Pricing & CTA -->
+        <!-- Slide 9: Support & Training -->
+        <div class="slide">
+            <h2>🎓 サポート＆トレーニング</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>📚 導入トレーニング</h4>
+                    <p>全検針員向けの包括的なトレーニングプログラムを提供。実機を使った実践的な研修。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📞 24/7サポート</h4>
+                    <p>導入後も安心の24時間サポート体制。電話・チャット・メールでの対応。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📖 マニュアル完備</h4>
+                    <p>分かりやすい操作マニュアルと動画チュートリアル。いつでも参照可能。</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔄 定期アップデート</h4>
+                    <p>機能改善と新機能の定期的な提供。ユーザーフィードバックを反映。</p>
+                </div>
+            </div>
+            <div style="margin-top: 40px; background: #EFF6FF; padding: 30px; border-radius: 15px;">
+                <h3 style="color: #1E40AF;">導入成功のための3つの約束</h3>
+                <ol style="color: #1E40AF; font-size: 1.2em; line-height: 2;">
+                    <li>現場の声を最優先に、使いやすさを追求</li>
+                    <li>段階的な導入で、無理のない移行を実現</li>
+                    <li>継続的なサポートで、長期的な成功を支援</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Slide 10: Call to Action -->
         <div class="slide">
             <div class="logo-slide">
                 <svg width="160" height="60" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
@@ -641,31 +684,30 @@
                     <text x="55" y="38" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1F2937">OSAKI</text>
                 </svg>
             </div>
-            <h2>🚀 今すぐ検満管理を効率化</h2>
+            <h2>🚀 今すぐ検針業務のDX化を始めましょう</h2>
             <div class="cta-box">
-                <h3>特別キャンペーン実施中</h3>
+                <h3>次のステップ</h3>
                 <p>
-                    計器情報と位置情報の提供にご協力いただける工事業者様<br>
-                    <strong style="font-size: 1.5em;">アプリ使用料1年間無料！</strong>
+                    詳細なデモンストレーションや導入相談をご希望の方は<br>
+                    お気軽にお問い合わせください
                 </p>
-                <p style="margin-top: 20px; font-size: 1em;">
-                    通常料金：月額9,800円〜（10ユーザーまで）<br>
-                    ※ 11ユーザー以上は1ユーザーあたり月額980円
-                </p>
-                <a href="#contact" class="cta-button">無料トライアルを申し込む</a>
+                <a href="#contact" class="cta-button">お問い合わせはこちら</a>
             </div>
-            <div style="margin-top: 40px; background: #F9FAFB; padding: 30px; border-radius: 15px;">
+            <div class="contact-info">
                 <h4>お問い合わせ先</h4>
-                <p>
-                    📧 Email: kenman@osaki.co.jp<br>
-                    📞 Tel: 03-1234-5678<br>
-                    🌐 Web: www.osaki.co.jp/kenman<br>
-                    営業時間：平日 9:00-18:00
+                <p><strong>OSAKI Electric Co., Ltd.</strong></p>
+                <p>📧 Email: smart-meter@osaki.co.jp</p>
+                <p>📞 Tel: 03-1234-5678</p>
+                <p>🌐 Web: www.osaki.co.jp/smart-meter</p>
+                <p style="margin-top: 20px; color: #9CA3AF;">
+                    営業時間：平日 9:00-18:00<br>
+                    担当部署：スマートメーター事業部
                 </p>
             </div>
             <div style="margin-top: 40px; text-align: center; padding-top: 30px; border-top: 2px solid #E5E7EB;">
                 <p style="color: #9CA3AF;">
-                    © 2025 OSAKI Electric Co., Ltd. All rights reserved.
+                    © 2025 OSAKI Electric Co., Ltd. All rights reserved.<br>
+                    Confidential - Internal Use Only
                 </p>
             </div>
         </div>
@@ -702,13 +744,16 @@
             
             slides[currentSlide - 1].classList.add('active');
             
+            // Update navigation
             document.getElementById('currentSlide').textContent = currentSlide;
             document.getElementById('prevBtn').disabled = currentSlide === 1;
             document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
             
+            // Update progress bar
             const progressPercent = (currentSlide / totalSlides) * 100;
             document.getElementById('progressFill').style.width = progressPercent + '%';
             
+            // Add animation to content
             const activeSlide = slides[currentSlide - 1];
             activeSlide.querySelectorAll('h1, h2, h3, p, li, .feature-card, .workflow-step, .roi-item').forEach((el, index) => {
                 el.style.opacity = '0';
@@ -726,12 +771,14 @@
             showSlide(currentSlide);
         }
 
+        // Keyboard navigation
         document.addEventListener('keydown', function(event) {
             if (event.key === 'ArrowLeft') changeSlide(-1);
             if (event.key === 'ArrowRight') changeSlide(1);
             if (event.key === ' ' || event.key === 'Enter') changeSlide(1);
         });
 
+        // Touch support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -749,8 +796,14 @@
             if (touchEndX > touchStartX + 50) changeSlide(-1);
         }
 
+        // Initialize
         document.getElementById('totalSlides').textContent = totalSlides;
         showSlide(1);
+
+        // Auto-advance timer (optional - commented out)
+        // setInterval(() => {
+        //     if (currentSlide < totalSlides) changeSlide(1);
+        // }, 10000);
     </script>
 </body>
 </html>
