@@ -43,11 +43,44 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #DC2626;
             text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .logo:hover {
+            transform: translateX(5px);
+        }
+        
+        .logo-osaki {
+            display: inline-flex;
+            align-items: center;
+            background: #DC2626;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            position: relative;
+        }
+        
+        .logo-osaki::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background: white;
+            opacity: 0.5;
+        }
+        
+        .logo-system {
+            margin-left: 20px;
+            color: #4B5563;
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .nav-menu {
@@ -823,13 +856,8 @@
     <header class="header">
         <nav class="nav-container">
             <a href="#" class="logo">
-                <svg width="120" height="45" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="5" y="15" width="12" height="30" fill="#DC2626"/>
-                    <rect x="20" y="10" width="12" height="35" fill="#DC2626"/>
-                    <rect x="35" y="18" width="12" height="27" fill="#DC2626"/>
-                    <text x="55" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1F2937">OSAKI</text>
-                </svg>
-                <span>検満管理システム</span>
+                <span class="logo-osaki">OSAKI</span>
+                <span class="logo-system">検満管理システム</span>
             </a>
             <ul class="nav-menu">
                 <li><a href="#problems">課題</a></li>
